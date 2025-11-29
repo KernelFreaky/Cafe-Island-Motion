@@ -25,7 +25,7 @@ export const Hero: React.FC = () => {
   const y = useTransform(scrollY, [0, 1000], [0, 400]); // Parallax bg moves slower
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
 
-  const videoSrc = "/hero-vid.mp4";
+  const videoSrc = "/hero-vid.webm";
 
   return (
     <section ref={ref} className="relative h-screen w-full overflow-hidden flex items-center justify-center">
@@ -40,11 +40,12 @@ export const Hero: React.FC = () => {
           loop     // Play in a continuous loop
           muted    // **Crucial for autoplay in most browsers**
           playsInline // Recommended for mobile
+          preload="auto"
           poster="https://picsum.photos/id/431/1920/1080" // Optional: A static image to show while video loads or if it fails
           className="w-full h-full object-cover"
         >
           {/* Use <source> for different video formats for maximum compatibility */}
-          <source src={videoSrc} type="video/mp4" />
+          <source src={videoSrc} type="video/webm" />
           {/* Fallback for browsers that don't support the video tag */}
           Your browser does not support the video tag.
         </video>
